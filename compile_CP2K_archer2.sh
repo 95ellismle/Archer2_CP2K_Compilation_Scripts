@@ -142,18 +142,21 @@ function check_lib_state() {
 
 
 # Check SSH keys
-SSH_FILE="$HOME/.ssh/id_rsa.pub"
-if ! [ -f "$SSH_FILE" ]; then 
-    echo "Need to create ssh keys!"
-    ssh-keygen
-    echo " "
-    echo " "
-    echo "Created ssh keys."
-    echo " "
-    echo "Now copy the following into the settings page of your github account and re-run this code when you've done it:"
-    echo " "
-    cat $SSH_FILE
-    exit;
+if [ "$SSH_FILENAME" != "" ]
+then
+	SSH_FILE="$HOME/.ssh/$SSH_FILENAME"
+	if ! [ -f "$SSH_FILE" ]; then 
+	    echo "Need to create ssh keys!"
+	    ssh-keygen
+ 	    echo " "
+ 	    echo " "
+ 	    echo "Created ssh keys."
+  	  echo " "
+  	  echo "Now copy the following into the settings page of your github account and re-run this code when you've done it:"
+ 	    echo " "
+ 	    cat $SSH_FILE
+ 	    exit;
+	fi
 fi
 
 # Download our version of CP2K
@@ -162,6 +165,10 @@ FLAV_CP2K_DIR="$ROOT_DIR/flavoured-cptk/cp2k"
 if ! [ -d "flavoured-cptk" ]
 then
     git clone git@github.com:blumberger/flavoured-cptk.git -b $BRANCH
+else
+		cd $ROOT_DIR/flavoured-cptk
+		git fetch $BRANCH
+		git checkout $BRANCH
 fi
 
 
