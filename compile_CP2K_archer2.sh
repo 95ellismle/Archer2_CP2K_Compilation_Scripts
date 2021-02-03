@@ -165,22 +165,22 @@ then
 fi
 
 
-# Download the 7.1 version of CP2K for the data directory
-cd $DOWNLOADS_DIR
-CP2K_7_STATE=`check_lib_state "CP2K_7"`
-if [ "$CP2K_7_STATE" == "False" ]
-then
-	change_lib_state "CP2K_7" "False"
-	wget https://github.com/cp2k/cp2k/releases/download/v7.1.0/cp2k-7.1.tar.bz2
-	echo "Extracting CP2K 7.1 into '$DOWNLOADS_DIR/cp2k-7.1'."
-	tar xvf cp2k-7.1.tar.bz2 &> $LOG_FILE_DIR/extract_cp2k_7_1.log \
-												 2> $LOG_FILE_DIR/extract_cp2k_7_1.err
-	change_lib_state "CP2K_7" "True"
-else
-	echo " "
-	echo "CP2K 7.1 already downloaded."
-fi
-CP2K7_DIR="$DOWNLOADS_DIR/cp2k-7.1"
+## Download the 7.1 version of CP2K for the data directory
+#cd $DOWNLOADS_DIR
+#CP2K_7_STATE=`check_lib_state "CP2K_7"`
+#if [ "$CP2K_7_STATE" == "False" ]
+#then
+#	change_lib_state "CP2K_7" "False"
+#	wget https://github.com/cp2k/cp2k/releases/download/v7.1.0/cp2k-7.1.tar.bz2
+#	echo "Extracting CP2K 7.1 into '$DOWNLOADS_DIR/cp2k-7.1'."
+#	tar xvf cp2k-7.1.tar.bz2 &> $LOG_FILE_DIR/extract_cp2k_7_1.log \
+#												 2> $LOG_FILE_DIR/extract_cp2k_7_1.err
+#	change_lib_state "CP2K_7" "True"
+#else
+#	echo " "
+#	echo "CP2K 7.1 already downloaded."
+#fi
+#CP2K7_DIR="$DOWNLOADS_DIR/cp2k-7.1"
 
 
 # Set CP2K Root
