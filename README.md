@@ -6,5 +6,8 @@ To compile the code run the compilation script as:
     
 This should download the correct version of the code from github and then download and install the correct dependencies. The script will then copy the arch file into the correct folder and make CP2K.
 
+To change the behaviour of the script change the config.sh file.
+
+
 
 NOTE: This only works with the patched version of CP2K otherwise the script will fail trying to compile CP2K.
