@@ -1,7 +1,7 @@
 BRANCH="code_extension_V2_archer2"
 CLEAN_INSTALL=False
 ARCH_FILE=archer2.sopt
-SSH_FILENAME="id_rsd.pub"
+SSH_FILENAME="id_rsa.pub"
 
 # Whether to install libraries
 # True = (re)install always 
